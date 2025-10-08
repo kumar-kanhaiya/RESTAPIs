@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -56,6 +57,11 @@ public class StudentController {
     }
 
     @PatchMapping("/{id}")
+    public ResponseEntity<StudentDto> updatePartialStudent(@PathVariable Long id
+            , @RequestBody Map<String,Object> updates){
+        return ResponseEntity.ok(studentService
+                .updatePartialStudent(id , updates));
+    }
 
 
 }
