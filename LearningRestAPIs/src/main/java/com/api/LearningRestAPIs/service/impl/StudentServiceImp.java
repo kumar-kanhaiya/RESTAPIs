@@ -78,8 +78,12 @@ public class StudentServiceImp  implements StudentService {
 
         updates.forEach((field,value) -> {
             switch (field){
-                case "name": student.setName((String) value);
-                case "email": student.setEmail((String) value);
+                case "name":
+                    student.setName((String) value);
+                    break;
+                case "email":
+                    student.setEmail((String) value);
+                    break;
                 default:
                     throw new IllegalArgumentException("field is not supported");
             }
