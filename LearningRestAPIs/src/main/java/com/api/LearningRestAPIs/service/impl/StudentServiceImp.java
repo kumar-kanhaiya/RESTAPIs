@@ -19,9 +19,15 @@ public class StudentServiceImp  implements StudentService {
     @Override
     public List<StudentDto> getAllStudent() {
         List<Student> students = studentRepository.findAll();
-        List<StudentDto> list = students.stream().map(student -> new
-                StudentDto(student.getId(),student.getName() , student.getEmail())).toList();
-        return List.of();
+        List<StudentDto> list = students
+                .stream()
+                .map(student -> new
+                StudentDto(
+                        student.getId(),
+                        student.getName() ,
+                        student.getEmail()))
+                .toList();
+        return list;
     }
 
 

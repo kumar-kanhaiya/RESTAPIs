@@ -2,8 +2,10 @@ package com.api.LearningRestAPIs.controller;
 
 
 import com.api.LearningRestAPIs.dto.StudentDto;
-import com.api.LearningRestAPIs.entity.Student;
-import com.api.LearningRestAPIs.repository.StudentRepository;
+
+import com.api.LearningRestAPIs.service.StudentService;
+import com.api.LearningRestAPIs.service.impl.StudentServiceImp;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -16,18 +18,18 @@ import java.util.List;
 
 
 @RestController
+@RequiredArgsConstructor
 public class StudentController {
 
-    @Autowired
-    private final StudentRepository studentRepository;
+    private final StudentService studentService;
 
-    public StudentController(StudentRepository studentRepository){
-        this.studentRepository = studentRepository;
-    }
+//    public StudentController(StudentRepository studentRepository){
+//        this.studentRepository = studentRepository;
+//    }
 
     @GetMapping("/student")
-    public List<Student> getStudent(){
-        return studentRepository.findAll();
+    public List<StudentDto> getStudent(){
+        return studentService.getAllStudent();
     }
 
     @GetMapping("/student/{id}")
