@@ -1,5 +1,6 @@
 package com.api.LearningRestAPIs.service;
 
+import com.api.LearningRestAPIs.dto.AddStudentRequestDto;
 import com.api.LearningRestAPIs.dto.StudentDto;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface StudentService {
 
     StudentDto getStudentById(Long id);
 
+    StudentDto createNewStudent(AddStudentRequestDto student);
 }
