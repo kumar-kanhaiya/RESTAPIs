@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -27,14 +28,14 @@ public class StudentController {
 //        this.studentRepository = studentRepository;
 //    }
 
-    @GetMapping("/student")
+    @GetMapping("/students")
     public List<StudentDto> getStudent(){
         return studentService.getAllStudent();
     }
 
-    @GetMapping("/student/{id}")
-    public StudentDto getStudentById(){
-        return new StudentDto(4L,"krishna","krish@gmail.com");
+    @GetMapping("/students/{id}")
+    public StudentDto getStudentById(@PathVariable Long id){
+        return studentService.getStudentById(id);
     }
 
 //    Configuration config = new Configuration().configure().addAnnotatedClass(StudentDto.class);

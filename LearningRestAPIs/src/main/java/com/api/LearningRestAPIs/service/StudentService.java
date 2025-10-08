@@ -9,5 +9,6 @@ public interface StudentService {
     List<StudentDto> getAllStudent();
 
 
+    StudentDto getStudentById(Long id);
 
 }
