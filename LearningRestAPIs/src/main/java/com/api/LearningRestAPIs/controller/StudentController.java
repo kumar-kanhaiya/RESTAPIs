@@ -22,9 +22,6 @@ public class StudentController {
 
     private final StudentService studentService;
 
-//    public StudentController(StudentRepository studentRepository){
-//        this.studentRepository = studentRepository;
-//    }
 
     @GetMapping
     public ResponseEntity<List<StudentDto>> getStudent(){
